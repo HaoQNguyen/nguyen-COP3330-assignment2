@@ -40,7 +40,7 @@ public class PaymentCalculator {
     }
 
     public int calculateMonthsUntilPaidOff() {
-        this.i = this.APR / 365;
+        this.i = this.APR / 100 / 365 ;
         this.n = (int) Math.ceil(-(1.0/30) * Math.log(1 + b/p * (1 - Math.pow(1 + i,30))) / Math.log(1 + i));
 
         return this.n;
