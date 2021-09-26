@@ -16,60 +16,32 @@ public class App {
         int answer;
         int counter;
         int guess;
+        String playAgain = "y";
 
         System.out.println("Let's play Guess the Number!\n");
 
-        while (true)
-        {
-            System.out.print("Enter the difficulty level (1, 2, or 3): ");
-            if (input.hasNextInt())
-            {
-                difficulty = input.nextInt();
-                counter = 0;
-                break;
+        while (playAgain.equalsIgnoreCase("y")) {
+            while (true) {
+                System.out.print("Enter the difficulty level (1, 2, or 3): ");
+                if (input.hasNextInt()) {
+                    difficulty = input.nextInt();
+                    counter = 0;
+                    break;
+                }
+                input.next();
             }
-            input.next();
-        }
 
-        // demo answers
-        if (difficulty == 1)
-            answer = 9;
-        else if (difficulty == 2)
-            answer = 41;
-        else
-            answer = 702;
-
-        System.out.print("I have my number. What's your guess? ");
-        while (true)
-        {
-            if (input.hasNextInt())
-            {
-                guess = input.nextInt();
-                ++counter;
-                break;
-            }
-            input.next();
-            System.out.print("Invalid input. Guess again: ");
-        }
-
-
-        while (guess != answer)
-        {
-            if (guess > answer)
-            {
-                System.out.print("Too high. Guess again: ");
-
-
-            }
+            // demo answers
+            if (difficulty == 1)
+                answer = 9;
+            else if (difficulty == 2)
+                answer = 41;
             else
-            {
-                System.out.print("Too low. Guess again: ");
-            }
+                answer = 702;
 
-            while (true)
-            {
-                if (input.hasNextInt())
-                {
+            System.out.print("I have my number. What's your guess? ");
+            while (true) {
+                if (input.hasNextInt()) {
                     guess = input.nextInt();
                     ++counter;
                     break;
@@ -77,9 +49,33 @@ public class App {
                 input.next();
                 System.out.print("Invalid input. Guess again: ");
             }
-        }
 
-        System.out.printf("You got it it %d guesses", counter);
+
+            while (guess != answer) {
+                if (guess > answer) {
+                    System.out.print("Too high. Guess again: ");
+
+
+                } else {
+                    System.out.print("Too low. Guess again: ");
+                }
+
+                while (true) {
+                    if (input.hasNextInt()) {
+                        guess = input.nextInt();
+                        ++counter;
+                        break;
+                    }
+                    input.next();
+                    System.out.print("Invalid input. Guess again: ");
+                }
+            }
+
+            System.out.printf("You got it it %d guesses.\n\n", counter);
+
+            System.out.print("Do you wish to play again (Y/N)? ");
+            playAgain = input.next();
+        }
     }
 
 }
