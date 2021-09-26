@@ -24,7 +24,7 @@ public class App {
                 age = input.nextInt();
                 break;
             }
-            input.nextLine();
+            input.next();
             System.out.println("Invalid input");
         }
 
@@ -36,7 +36,7 @@ public class App {
                 restingHR = input.nextInt();
                 break;
             }
-            input.nextLine();
+            input.next();
             System.out.println("Invalid input");
         }
 
