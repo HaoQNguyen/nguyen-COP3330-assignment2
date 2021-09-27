@@ -9,6 +9,11 @@ import java.util.Scanner;
 
 public class App {
 
+    public static int calcYear(double r)
+    {
+        return (int) Math.ceil(72 / r);
+    }
+
     public static void main( String[] args )
     {
         Scanner input = new Scanner(System.in);
@@ -22,8 +27,7 @@ public class App {
                 boolean notEqualZero = Math.abs(r - 0) > Math.pow(10, -4);
 
                 if (notEqualZero) {
-                    int year = (int) Math.ceil(72 / r);
-                    System.out.printf("It will take %d years to double your initial investment.", year);
+                    System.out.printf("It will take %d years to double your initial investment.", calcYear(r));
                     break;
                 }
             }
