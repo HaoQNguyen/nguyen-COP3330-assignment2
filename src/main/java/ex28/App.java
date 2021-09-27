@@ -9,18 +9,30 @@ import java.util.Scanner;
 
 public class App {
 
+    public static int sum(int[] number)
+    {
+        int total = 0;
+
+        for (int i = 0; i < 5; ++i)
+        {
+            total += number[i];
+        }
+
+        return total;
+    }
+
     public static void main( String[] args )
     {
         Scanner input = new Scanner(System.in);
-        double sum = 0;
+        int[] number = new int[5];
 
         for (int i = 0; i < 5; ++i)
         {
             System.out.print("Enter a number: ");
-            sum += input.nextDouble();
+            number[i] += input.nextInt();
         }
 
-        System.out.printf("The total is %.2f.", sum);
+        System.out.printf("The total is %d.", sum(number));
     }
 
 }
