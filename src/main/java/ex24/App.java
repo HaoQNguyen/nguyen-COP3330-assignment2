@@ -10,10 +10,10 @@ import java.util.Scanner;
 
 public class App
 {
-    public static boolean isAnagram(String s1, String s2)
+    public static int isAnagram(String s1, String s2)
     {
         if(s1.length() != s2.length())
-            return false;
+            return 0;
 
         s1 = s1.toLowerCase();
         s2 = s2.toLowerCase();
@@ -23,7 +23,11 @@ public class App
 
         Arrays.sort(S1);
         Arrays.sort(S2);
-        return Arrays.equals(S1, S2);
+
+        if (Arrays.equals(S1, S2))
+            return 1;
+        else
+            return 0;
     }
 
     public static void main( String[] args )
@@ -37,7 +41,7 @@ public class App
         System.out.print("Enter the second string: ");
         s2 = input.nextLine();
 
-        if (isAnagram(s1,s2))
+        if (isAnagram(s1,s2) == 1)
         {
             System.out.printf("\"%s\" and \"%s\" are anagrams.", s1, s2);
         }
