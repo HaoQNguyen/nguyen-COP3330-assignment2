@@ -9,12 +9,16 @@ import java.util.Scanner;
 
 public class App {
 
+    public static int targetHRCalc(int restingHR, int age, int intensity)
+    {
+        return (int) Math.round((((220 - age) - restingHR) * intensity/100.0) + restingHR);
+    }
+
     public static void main( String[] args )
     {
         Scanner input = new Scanner(System.in);
         int restingHR;
         int age;
-        int targetHR;
 
         while (true)
         {
@@ -44,8 +48,7 @@ public class App {
         System.out.println("-------------|--------");
         for (int intensity = 55; intensity <= 95; intensity += 5)
         {
-            targetHR = (int) Math.round((((220 - age) - restingHR) * intensity/100.0) + restingHR);
-            System.out.printf("%d%%          | %d bpm\n", intensity, targetHR);
+            System.out.printf("%d%%          | %d bpm\n", intensity, targetHRCalc(restingHR, age, intensity));
         }
     }
 
