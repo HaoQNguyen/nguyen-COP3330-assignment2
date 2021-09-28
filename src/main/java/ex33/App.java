@@ -8,20 +8,25 @@ package ex33;
 import java.util.Random;
 import java.util.Scanner;
 
-public class App {
+class App {
+
+    public static String magic8Ball(int ind)
+    {
+        String[] choices = {"Yes.", "No.", "Maybe.", "Ask again later."};
+
+        return choices[ind];
+    }
 
     public static void main( String[] args )
     {
         Scanner input = new Scanner(System.in);
         Random rand = new Random();
 
-        String[] choices = {"Yes.", "No.", "Maybe.", "Ask again later."};
-
         System.out.print("What's your question?\n> ");
         input.nextLine();
 
         int ind = rand.nextInt(4);
-        System.out.print(choices[ind]);
+        System.out.print(magic8Ball(ind));
     }
 
 }
