@@ -11,6 +11,11 @@ import java.util.Scanner;
 
 public class App {
 
+    public static String pickWinner(ArrayList<String> list, int ind)
+    {
+        return list.get(ind);
+    }
+
     public static void main( String[] args ) {
 
         Scanner input = new Scanner(System.in);
@@ -27,7 +32,8 @@ public class App {
             list.add(newContestant);
         }
 
-        System.out.printf("The winner is %s", list.get(rand.nextInt(list.size())));
+        int ind = rand.nextInt(list.size());
+        System.out.printf("The winner is %s", pickWinner(list, ind));
 
     }
 
